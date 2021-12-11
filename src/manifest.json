@@ -1,0 +1,31 @@
+{
+    "name": "JusDown",
+    "description": "Realize download dos processos do Jusbrasil",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "contentSettings",
+        "background",
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.jusbrasil.com.br/jurisprudencia/*"
+            ],
+            "js": [
+                "contentScript.js"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
